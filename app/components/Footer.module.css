@@ -1,0 +1,129 @@
+/* Footer.module.css */
+
+.footer {
+  background: var(--card-black);
+  border-top: 1px solid var(--border-grey);
+  padding-block: clamp(40px, 5vw, 64px);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.wordmarkBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--film-white);
+}
+
+.tagline {
+  color: var(--muted-grey);
+}
+
+.footerNav {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.footerLink {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted-grey);
+  letter-spacing: 0.02em;
+  transition: color var(--duration-fast);
+}
+
+.footerLink:hover {
+  color: var(--film-white);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-grey);
+  margin-bottom: var(--space-xl);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.copyright {
+  color: var(--muted-grey);
+}
+
+.signature {
+  text-align: center;
+}
+
+.sigText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--muted-grey);
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.socialIcon {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted-grey);
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-grey);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast),
+              border-color var(--duration-fast),
+              background var(--duration-fast);
+}
+
+.socialIcon:hover {
+  color: var(--film-white);
+  border-color: var(--signal-red);
+  background: rgba(241,38,44,0.08);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .top {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .footerNav {
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+}

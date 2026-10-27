@@ -1,0 +1,304 @@
+/* Hero.module.css */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+/* ── Background ── */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: saturate(0.7) brightness(0.45);
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%,
+    rgba(16,16,16,0.3) 0%,
+    rgba(16,16,16,0.85) 70%,
+    rgba(16,16,16,1) 100%);
+}
+
+.bgGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, var(--obsidian));
+}
+
+/* ── Film Frame decorations ── */
+.filmFrame {
+  position: absolute;
+  inset: calc(var(--nav-height) + 16px) 20px 20px 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.frameCornerTL,
+.frameCornerTR,
+.frameCornerBL,
+.frameCornerBR {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(245, 245, 243, 0.2);
+  border-style: solid;
+}
+.frameCornerTL { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.frameCornerTR { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.frameCornerBL { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.frameCornerBR { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+.frameSideL,
+.frameSideR {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: rgba(245, 245, 243, 0.2);
+  text-transform: uppercase;
+}
+
+.frameSideL { left: 0; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); }
+.frameSideR { right: 0; writing-mode: vertical-rl; }
+
+/* ── Content ── */
+.content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(32px, 4vw, 56px);
+  padding-top: clamp(40px, 6vw, 80px);
+}
+
+/* Meta row */
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  animation: fadeIn var(--duration-slow) var(--ease-out) 0.2s both;
+}
+
+.metaLabel {
+  color: var(--muted-grey);
+}
+
+.metaDivider {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--border-grey);
+}
+
+/* Headline */
+.headline {
+  margin-bottom: var(--space-xl);
+}
+
+.lineOne,
+.lineTwo,
+.lineThree {
+  display: block;
+  color: var(--film-white);
+}
+
+.lineOne {
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.3s both;
+}
+
+.lineTwo {
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.42s both;
+}
+
+.lineThree {
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.54s both;
+}
+
+.accentWord {
+  display: inline-block;
+  position: relative;
+}
+
+/* Sub text */
+.sub {
+  max-width: 480px;
+  color: var(--muted-grey);
+  margin-bottom: var(--space-xl);
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.66s both;
+}
+
+.brDesktop {
+  display: inline;
+}
+
+/* CTAs */
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.78s both;
+}
+
+.ctaPrimary,
+.ctaGhost {
+  min-width: 180px;
+  justify-content: center;
+}
+
+.playIcon {
+  font-size: 10px;
+  margin-right: 2px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.9s both;
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-grey);
+  border: 1px solid var(--border-grey);
+  padding: 5px 12px;
+  border-radius: 100px;
+  transition: border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.tag:hover {
+  border-color: var(--signal-red);
+  color: var(--film-white);
+}
+
+/* ── Showreel ── */
+.showreelWrapper {
+  position: relative;
+  z-index: 5;
+  padding-inline: var(--gutter);
+  padding-bottom: clamp(48px, 6vw, 96px);
+  animation: fadeUp var(--duration-slow) var(--ease-out) 0.5s both;
+}
+
+.showreelInner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.showreelPlaceholder {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-grey);
+  background: var(--card-black);
+}
+
+/* Keep these for responsive */
+.showreelMetaItem { display: none; }
+
+/* ── Scroll indicator ── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 20px;
+  right: var(--gutter);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  animation: fadeIn 1s var(--ease-out) 1.2s both;
+}
+
+.scrollLine {
+  width: 32px;
+  height: 1px;
+  background: var(--border-grey);
+  animation: scaleIn 1s var(--ease-out) 1.4s both;
+}
+
+/* ── Marquee ── */
+.marqueeWrapper {
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  border-top: 1px solid var(--border-grey);
+  padding-block: 12px;
+  background: var(--obsidian);
+}
+
+.marqueeTrack {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeTape {
+  display: inline-flex;
+  animation: marquee 28s linear infinite;
+}
+
+.marqueeItem {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-grey);
+  padding-right: var(--space-xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .metaDivider { display: none; }
+
+  .frameSideL,
+  .frameSideR { display: none; }
+
+  .showreelPlaceholder {
+    aspect-ratio: 16 / 9;
+  }
+
+  .scrollIndicator { display: none; }
+
+  .brDesktop { display: none; }
+
+  .ctas { flex-direction: column; align-items: flex-start; }
+  .ctaPrimary, .ctaGhost { width: 100%; }
+}
